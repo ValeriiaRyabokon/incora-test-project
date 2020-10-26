@@ -1,0 +1,1 @@
+export const GET_COMMENT = 'comment/GET_COMMENT'

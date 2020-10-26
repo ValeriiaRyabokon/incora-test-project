@@ -1,11 +1,7 @@
 import React, {useState} from "react";
-import Dialog from "@material-ui/core/Dialog";
 import { makeStyles } from "@material-ui/core";
-import { DialogTitle, DialogContent, Button } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import DialogActions from "@material-ui/core/DialogActions";
+import { DialogTitle, DialogContent, Button, Dialog,TextField , DialogActions } from "@material-ui/core";
 import { connect } from "react-redux";
-import {createPost} from '../store/actions/actions'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,20 +13,11 @@ background:"#3f51b5"
   }
 }));
 
-const ModalWindow = ({ title, visible, onClose, userId }) => {
+const ModalEdit= ({ visible, onClose }) => {
   const classes = useStyles();
   const [inputValueTitle, setInputValueTitle]= useState('');
   const [inputValueBody, setInputValueBody]= useState('');
- const newPost=()=>{
-     const obj={
-         userId:userId,
-         id:Date.now().toString(),
-         title:inputValueTitle,
-         body:inputValueBody
-     }
-     //ми тут начебто і закидаємо до екшина ля новий пост
-     createPost(obj)
- }
+
   if (!visible) {
     return null;
   }
@@ -38,16 +25,16 @@ const ModalWindow = ({ title, visible, onClose, userId }) => {
     <div>
       <Dialog
         open={visible}
-        onClose={onClose}
         aria-labelledby="form-dialog-title"
         maxWidth="md"
         fullWidth="true"
+        onClose={onClose}
       >
-        <DialogTitle 
+        <DialogTitle
         className={classes.dialogTitle}
         id="form-dialog-title"
         >
-        {title}
+       Edit Post
         </DialogTitle>
         <DialogContent>
           <TextField
@@ -78,14 +65,12 @@ const ModalWindow = ({ title, visible, onClose, userId }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={newPost}>Create</Button>
-          <Button color="primary">Cancel</Button>
+          <Button variant="contained" color="primary">Edit</Button>
+          <Button variant="contained" color="secondary" onClick={onClose}>Cancel</Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 };
-const mapDispatchToProps={
-  createPost
-}
-export default connect(null,mapDispatchToProps)(ModalWindow);
+
+export default connect(null,null)(ModalEdit);

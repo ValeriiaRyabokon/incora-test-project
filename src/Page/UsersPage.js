@@ -17,7 +17,7 @@ const UsersPage = ({ usersList, onClickPosts, getUsers }) => {
       <Header nameByPage="Users" />
       <div style={{
           width: "90%",
-          margin : "80px auto"
+          margin : "70px auto"
       }}>
       {usersList.map(user => (
         <Content

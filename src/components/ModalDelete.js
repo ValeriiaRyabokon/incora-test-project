@@ -6,7 +6,8 @@ import {
   Button,
   Typography,
   DialogActions,
-  Dialog
+  Dialog, 
+  Box
 } from "@material-ui/core";
 import { connect } from "react-redux";
 import { deletePost } from "../store/module/post/Actions";
@@ -45,14 +46,22 @@ const ModalDelete = ({ visible, onClose, id }) => {
         <DialogTitle className={classes.dialogTitle} id="form-dialog-title">
           Delete
         </DialogTitle>
-        <DialogActions>
-          <Typography>Do you realle want to delete this post?</Typography>
+        <DialogActions  style={{
+          display:"flex", 
+          flexDirection:"inherit",
+
+        }}>
+          <Typography variant="body1" gutterBotom paragraph>Do you realle want to delete this post?</Typography>
+          <DialogActions style={{
+            flexDirection:"initial",
+          }}>
           <Button variant="contained" color="primary" onClick={onDelete}>
             Delete
           </Button>
           <Button variant="contained" color="secondary" onClick={onClose}>
             Cancel
           </Button>
+          </DialogActions>
         </DialogActions>
       </Dialog>
     </div>

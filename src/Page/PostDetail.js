@@ -49,7 +49,7 @@ const PostDetail = ({ postsList, getPosts, getComments, commentsList }) => {
         {
         newPosts.map(post => ( <
             Detail 
-            details = { `Detail:${post.body}` }
+            details ={post.body}
             obj = { newComments }
             key = { post.id }
             />

@@ -32,15 +32,15 @@ const UserPostsPage = ({ onClickDetail, postsList, getPosts }) => {
       />
        <div style={{
           width: "90%",
-          margin : "80px auto"
+          margin : "70px auto"
       }}>
       {newPosts.map(post => (
         <Content
           nameByPage={`${post.user.name}'s posts`}
           nameForButton="Details"
           id={post.id}
-          name={`Title:${post.title}`}
-          details={`Body:${post.body
+          name={post.title}
+          details={`${post.body
             .split("")
             .splice(0, 20)
             .join("")}...`}

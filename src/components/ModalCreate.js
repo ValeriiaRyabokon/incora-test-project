@@ -53,7 +53,7 @@ const ModalCreate = ({ title, visible, onClose, addPost }) => {
             autoFocus
             margin="dense"
             id="title"
-            label="title"
+            label="Title"
             type="text"
             fullWidth
             onChange={event => setInputValueTitle(event.target.value)}
@@ -65,14 +65,16 @@ const ModalCreate = ({ title, visible, onClose, addPost }) => {
             multiline
             autoFocus
             margin="dense"
-            label="body"
+            label="Body"
             type="text"
             fullWidth
             value={inputValueBody}
             onChange={event => setInputValueBody(event.target.value)}
           />
         </DialogContent>
-        <DialogActions>
+        <DialogActions style={{
+          justifyContent:"center"
+        }}>
           <Button variant="contained" color="primary" onClick={newPost}>
             Create
           </Button>

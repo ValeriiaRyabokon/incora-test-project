@@ -45,7 +45,7 @@ const ModalEdit= ({ visible, onClose }) => {
             autoFocus
             margin="dense"
             id="title"
-            label="title"
+            label="Title"
             type="text"
             fullWidth
             onChange={(event)=>setInputValueTitle(event.target.value)}
@@ -57,14 +57,16 @@ const ModalEdit= ({ visible, onClose }) => {
             multiline
             autoFocus
             margin="dense"
-            label="body"
+            label="Body"
             type="text"
             fullWidth
             value={inputValueBody}
             onChange={(event)=>setInputValueBody(event.target.value)}
           />
         </DialogContent>
-        <DialogActions>
+        <DialogActions style={{
+          justifyContent: "center"
+        }}>
           <Button variant="contained" color="primary">Edit</Button>
           <Button variant="contained" color="secondary" onClick={onClose}>Cancel</Button>
         </DialogActions>

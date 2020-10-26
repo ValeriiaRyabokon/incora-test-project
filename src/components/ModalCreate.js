@@ -1,30 +1,30 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core";
+import React, {useState} from 'react';
+import {makeStyles} from '@material-ui/core';
 import {
   DialogTitle,
   DialogContent,
   Button,
   Dialog,
   TextField,
-  DialogActions
-} from "@material-ui/core";
-import { connect } from "react-redux";
-import { addPost } from "../store/module/post/Actions";
+  DialogActions,
+} from '@material-ui/core';
+import {connect} from 'react-redux';
+import {addPost} from '../store/module/post/Actions';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   dialogTitle: {
-    textAlign: "center",
-    background: "#3f51b5"
-  }
+    textAlign: 'center',
+    background: '#3f51b5',
+  },
 }));
 
-const ModalCreate = ({ title, visible, onClose, addPost }) => {
+const Modal = ({title, visible, onClose, addPost}) => {
   const classes = useStyles();
-  const [inputValueTitle, setInputValueTitle] = useState("");
-  const [inputValueBody, setInputValueBody] = useState("");
+  const [inputValueTitle, setInputValueTitle] = useState('');
+  const [inputValueBody, setInputValueBody] = useState('');
   const newPost = () => {
     addPost(inputValueTitle, inputValueBody);
     onClose();
@@ -47,7 +47,7 @@ const ModalCreate = ({ title, visible, onClose, addPost }) => {
         <DialogContent>
           <TextField
             style={{
-              height: "100px"
+              height: '100px',
             }}
             multiline
             autoFocus
@@ -56,7 +56,7 @@ const ModalCreate = ({ title, visible, onClose, addPost }) => {
             label="Title"
             type="text"
             fullWidth
-            onChange={event => setInputValueTitle(event.target.value)}
+            onChange={(event) => setInputValueTitle(event.target.value)}
             value={inputValueTitle}
           />
 
@@ -69,12 +69,14 @@ const ModalCreate = ({ title, visible, onClose, addPost }) => {
             type="text"
             fullWidth
             value={inputValueBody}
-            onChange={event => setInputValueBody(event.target.value)}
+            onChange={(event) => setInputValueBody(event.target.value)}
           />
         </DialogContent>
-        <DialogActions style={{
-          justifyContent:"center"
-        }}>
+        <DialogActions
+          style={{
+            justifyContent: 'center',
+          }}
+        >
           <Button variant="contained" color="primary" onClick={newPost}>
             Create
           </Button>
@@ -89,4 +91,5 @@ const ModalCreate = ({ title, visible, onClose, addPost }) => {
 const mapDispatchToProps = {
   addPost
 };
-export default connect(null, mapDispatchToProps)(ModalCreate);
+
+export const ModalCreate = connect(null, mapDispatchToProps)(Modal);

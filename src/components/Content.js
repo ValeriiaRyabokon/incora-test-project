@@ -1,23 +1,15 @@
-import React  from "react";
-import { makeStyles } from "@material-ui/core";
-import {
-  Grid,
-  Button,
-  Typography
-} from "@material-ui/core";
-import { connect } from "react-redux";
+import React from 'react';
+import {makeStyles} from '@material-ui/core';
+import {Grid, Button, Typography} from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
+const useStyles = makeStyles(() => ({
+  wrapper: {
+    padding: '15px 30px',
+    borderBottom: '1px solid #ccc',
   },
-  wrapper:{
-    padding:"15px 30px",
-    borderBottom:"1px solid #ccc",
-  }
 }));
 
-const Content = ({
+export const Content = ({
   id,
   name,
   nameForButton,
@@ -30,18 +22,20 @@ const Content = ({
 
   return (
     <>
-      <Grid container direction="row"
-  justify="space-around"
-  alignItems="center"
-  className={classes.wrapper}
-  >
+      <Grid
+        container
+        direction="row"
+        justify="space-around"
+        alignItems="center"
+        className={classes.wrapper}
+      >
         <Grid xs="5">
           {name && (
             <Typography
-            variant="body1" gutterBotom paragraph
-              style={{
-                width: "50%"
-              }}
+              variant="body1"
+              gutterBotom
+              paragraph
+              style={{width: '50%'}}
             >
               {name && name}
             </Typography>
@@ -49,9 +43,7 @@ const Content = ({
         </Grid>
         <Grid xs="5">
           {details && (
-            <Typography
-            variant="body1" gutterBotom paragraph
-            >
+            <Typography variant="body1" gutterBotom paragraph>
               {details}
             </Typography>
           )}
@@ -72,7 +64,3 @@ const Content = ({
     </>
   );
 };
-const mapStateToProps = state => {
-  return state;
-};
-export default connect(mapStateToProps, null)(Content);

@@ -1,30 +1,30 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core";
+import React from 'react';
+import {makeStyles} from '@material-ui/core';
 import {
   AppBar,
   Toolbar,
   Button,
   Typography,
   Container,
-  Box
-} from "@material-ui/core";
+  Box,
+} from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   toolbar: {
-    display: "flex",
-    justifyContent: "space-between"
-  }
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
 }));
 
-const Header = ({
+export const Header = ({
   nameByPage,
   nameForFirstButton,
   nameForSecondButton,
   onClickFirstButton,
-  onClickSecondButton
+  onClickSecondButton,
 }) => {
   const classes = useStyles();
 
@@ -38,7 +38,7 @@ const Header = ({
             </Typography>
             <span
               style={{
-                display: "flex"
+                display: 'flex',
               }}
             >
               {nameForFirstButton && (
@@ -57,7 +57,7 @@ const Header = ({
                 <Box mr={3}>
                   <Button
                     style={{
-                      marginRight: "10px"
+                      marginRight: '10px',
                     }}
                     size="small"
                     variant="contained"
@@ -75,5 +75,3 @@ const Header = ({
     </>
   );
 };
-
-export default Header;

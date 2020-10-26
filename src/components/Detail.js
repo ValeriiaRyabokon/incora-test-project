@@ -1,33 +1,38 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core";
-import { Typography, Card, CardContent, Container } from "@material-ui/core";
-import { connect } from "react-redux";
+import React from 'react';
+import {makeStyles} from '@material-ui/core';
+import {Typography, Card, CardContent, Container} from '@material-ui/core';
+import {connect} from 'react-redux';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginTop:"5px"
-  }
+    marginTop: '5px',
+  },
 }));
 
-const Detail = ({obj, details }) => {
+export const Detail = ({obj, details}) => {
   const classes = useStyles();
   return (
     <>
       <Container
         style={{
-          marginTop: "100px"
+          marginTop: '100px',
         }}
       >
         <Typography variant="h5" gutterBotom paragraph>
           {details}
         </Typography>
-        <Typography variant="h5" gutterBotom paragraph style={{
-            fontWeight:"900"
-        }}>
+        <Typography
+          variant="h5"
+          gutterBotom
+          paragraph
+          style={{
+            fontWeight: '900',
+          }}
+        >
           Comments:
         </Typography>
-        {obj.map(comment => (
+        {obj.map((comment) => (
           <Card className={classes.root}>
             <CardContent>
               <Typography variant="body1" component="h2">
@@ -43,7 +48,3 @@ const Detail = ({obj, details }) => {
     </>
   );
 };
-const mapStateToProps = state => {
-  return state;
-};
-export default connect(mapStateToProps, null)(Detail);

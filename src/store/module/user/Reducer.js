@@ -1,16 +1,17 @@
-import { GET_USERS } from "./types";
+import {GET_USERS} from './types';
 
 const initialUsers = {
-    usersList: [],
-}
+  usersList: [],
+};
+
 export const usersReducer = (state = initialUsers, action) => {
-    switch (action.type) {
-        case GET_USERS:
-            return {
-                ...state,
-                usersList: action.payload
-            };
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case GET_USERS:
+      return {
+        ...state,
+        usersList: action.payload,
+      };
+    default:
+      return state;
+  }
+};
